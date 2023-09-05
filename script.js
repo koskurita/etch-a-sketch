@@ -5,6 +5,7 @@ let gridSize = DEFAULT_SIZE;
 let gridMode = true;
 let eraserMode = false;
 let gridColor = "black";
+const eraserColor = "white";
 
 
 let mouseDown = false;
@@ -27,6 +28,7 @@ clearbtn.addEventListener('click',resetGrid);
 eraserbtn.addEventListener('click', eraserToggle);
 colorPicker.addEventListener('input', setGridColor);
 sizeSlider.addEventListener('click', updateGridSize);
+
 
 function toggleGridGap() {
     if (gridMode){
@@ -63,14 +65,14 @@ function setGridColor(e) {
 function updateGridSize(e){
     console.log(e.type);
     gridSize = e.target.value;
+    updateGridDimension(gridSize);
     resetGrid();
 }
 
 
-
-
-
-
+function updateGridDimension(size){
+    gridDimension.innerHTML = `${size} x ${size}`;
+}
 
 function setUpGrid(num) {
     grid.style.gridTemplateColumns = `repeat(${num}, 1fr)`;
@@ -88,9 +90,16 @@ function setUpGrid(num) {
 function changeGridColor(e) {
     if (e.type === "mouseover" & mouseDown === false) return;
 
-    e.target.style.backgroundColor = gridColor;
-    console.log(e.type);
+    switch (eraserMode){
+        case true:
+            e.target.style.backgroundColor = eraserColor;
+            break;
+        case false:
+            e.target.style.backgroundColor = gridColor;
+            break;
+    }
 }
 
 setUpGrid(gridSize);
+
 

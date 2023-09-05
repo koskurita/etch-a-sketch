@@ -11,6 +11,119 @@ html {
     min-height: 100%;
 }
 
+body {
+    background-color: beige;
+    color: black;
+    line-height: 1.6;
+}
+h1 {
+    line-height: 1.2;
+}
+
+/* define the default look */
+button, input {
+    width: 100%;
+    border: none;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: pointer;
+    outline: none;
+}
+
+/* HEADER */
+
+.class-header {
+    padding: 30px 0;
+}
+
+.class-title {
+    text-align: center;
+    font-size: 80px;
+}
+
+/* MAIN */
+
+.class-main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 100px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.settings {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    width: 200px;
+}
+
+/* define button layout*/
+button {
+    padding: 10px 20px;
+    border: 1px solid black;
+    border-radius: 5px;;
+}
+
+button:active {
+    background-color: black;
+    color: white;
+}
+
+button,
+input[type='color'] {
+    transition: transform 0.05s ease-in-out;
+}
+
+button:hover,
+input[type='color'] {
+    transition: transform 0.05s ease-in-out;
+}
+
+button:hover,
+input[type='color']:hover {
+    transform: scale(1.05);
+}
+
+/*  normal size when user clicks, so it feels like they are pressing a button */
+input[type='color']:active {
+    transition: transform 0.05s ease-in-out;
+    transform:scale(1);
+}
+
+input[type='color'] {
+    /* -webkit-appearance: none; */
+    width: 80px;
+    height: 80px;
+    border: none;
+}
+
+input[type='color']::-webkit-color-swatch-wrapper {
+    padding: 0;
+} 
+
+input[type='color']::-webkit-color-swatch {
+    border: none;
+    border-radius: 100px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.grid-size {
+    /* margin-bottom: -20px; */
+    font-size: 20px;
+}
+
+input[type='range'] {
+    -webkit-appearance: none;
+    background-color: beige;
+
+
+
+
 .grid {
     box-sizing: content-box;
     display: grid;
