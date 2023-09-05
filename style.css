@@ -1,0 +1,27 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+.grid {
+    box-sizing: content-box;
+    display: grid;
+    width: 500px;
+    height: 500px;
+    background-color:black;
+    border: 1px solid black;
+    grid-gap: 1px;
+    
+}
+
+.grid-element {
+    background-color: white;
+}
