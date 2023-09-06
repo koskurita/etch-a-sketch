@@ -32,11 +32,15 @@ sizeSlider.addEventListener('click', updateGridSize);
 
 function toggleGridGap() {
     if (gridMode){
-        grid.style.gridGap = "0px"; 
+        grid.style.gridGap = "1px"; 
+        grid.style.border = "1px solid black"; 
+        gridbtn.classList.add('btn-on')
         gridMode =false;
     }
     else {
-        grid.style.gridGap = "1px";
+        grid.style.gridGap = "0px";
+        grid.style.border = "0px"; 
+        gridbtn.classList.remove('btn-on')
         gridMode = true;
     }
 }
@@ -50,9 +54,12 @@ function eraserToggle() {
     switch (eraserMode) {
         case false:
             eraserMode = true;
+            eraserbtn.classList.add('btn-on')
             break;
         case true:
             eraserMode = false;
+            eraserbtn.classList.remove('btn-on')
+
             break;
     }
 }

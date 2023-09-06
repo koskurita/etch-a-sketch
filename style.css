@@ -1,3 +1,10 @@
+:root {
+    --primary-dark: #333;
+    --primary-light: #ededed;
+    --secondary-light: #fefefe;
+  }
+  
+
 *,
 *::before,
 *::after {
@@ -14,8 +21,10 @@ html {
 body {
     background-color: beige;
     color: black;
+    font-family: 'Roboto', sans-serif;;
     line-height: 1.6;
 }
+
 h1 {
     line-height: 1.2;
 }
@@ -48,8 +57,8 @@ button, input {
     display: flex;
     align-items: center;
     justify-content: center;
+    /* flex-wrap: wrap; */
     gap: 100px;
-    max-width: 1000px;
     margin: 0 auto;
 }
 
@@ -67,6 +76,11 @@ button {
     padding: 10px 20px;
     border: 1px solid black;
     border-radius: 5px;;
+}
+
+button.btn-on {
+    background-color: black;
+    color: white;
 }
 
 button:active {
@@ -96,9 +110,11 @@ input[type='color']:active {
 }
 
 input[type='color'] {
-    /* -webkit-appearance: none; */
+    -webkit-appearance: none;
+    appearance: color;
     width: 80px;
     height: 80px;
+    border-radius: 100px;
     border: none;
 }
 
@@ -113,28 +129,100 @@ input[type='color']::-webkit-color-swatch {
 }
 
 .grid-size {
-    /* margin-bottom: -20px; */
+    margin-bottom: -2px;
     font-size: 20px;
 }
 
 input[type='range'] {
     -webkit-appearance: none;
+    appearance: range;
     background-color: beige;
+}
 
+input[type='range']::-webkit-slider-runnable-track {
+    height:10px;
+    border: 1px solid black;
+    border-radius: 25px;
+    background-color: beige;
+}
 
+input[type='range']::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px; 
+    height: 20px;
+    border-radius: 25px;
+    /* -6px because 
+        track height is 10px, 
+        center of track height is 10/2 = 5px.
+        
+        dot height is 20px,
+        center of dot it 20/2 = 10px.
+
+        The origin point of the height is 1px off since
+        dot height starts from under the border.
+
+        Taking that into account and calculating the diff:
+        10-5+1 = 6px
+    */
+    margin-top: -6px;
+    background: black;
+}
 
 
 .grid {
-    box-sizing: content-box;
     display: grid;
     width: 500px;
     height: 500px;
     background-color:black;
-    border: 1px solid black;
-    grid-gap: 1px;
+    border: 0px solid black;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;;
+    grid-gap: 0px;
     
 }
 
 .grid-element {
     background-color: white;
 }
+
+
+/* MEDIA QUERIES */
+@media (max-width: 1200px) {
+    .main {
+      justify-content: center;
+    }
+  }
+  
+  @media (max-width: 850px) {
+    .main {
+      gap: 50px;
+    }
+  
+    .settings {
+      width: 150px;
+      gap: 16px;
+    }
+  
+    .size-value {
+      margin-bottom: -4px;
+    }
+  
+    .grid {
+      width: 400px;
+      height: 400px;
+    }
+  }
+  
+  @media (max-width: 650px) {
+    .title {
+      font-size: 50px;
+    }
+  
+    .main {
+      flex-direction: column-reverse;
+    }
+  
+    .grid {
+      width: 300px;
+      height: 300px;
+    }
+  }
